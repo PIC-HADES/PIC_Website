@@ -7,13 +7,14 @@ npm run build:css
 # Install Rust toolchain if missing
 if ! which rustc >/dev/null 2>&1; then
     echo "Installing Rust toolchain..."
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    RUSTUP_YES=true curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
+        | sh -s -- --default-toolchain stable -y --no-modify-path 2>&1
     . "$HOME/.cargo/env"
 fi
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Add wasm target if missing
 if ! rustup target list --installed 2>/dev/null | grep -q wasm32-unknown-unknown; then
-    echo "Adding wasm32-unknown-unknown target..."
     rustup target add wasm32-unknown-unknown
 fi
 
