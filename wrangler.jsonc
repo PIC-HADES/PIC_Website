@@ -1,0 +1,5 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pic-hades-website",
+  "pages_build_output_dir": "dist"
+}
