@@ -3,4 +3,3 @@
 /style/output.css
 /node_modules
 *.wasm
-.wrangler
