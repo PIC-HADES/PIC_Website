@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    @apply bg-hades-500/30 text-hades-200;
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-slate-400 mt-2 max-w-2xl;
+  }
+
+  .stat-number {
+    @apply text-4xl md:text-5xl font-bold font-mono text-hades-400;
+  }
+
+  .stat-label {
+    @apply text-sm uppercase tracking-widest text-slate-400 mt-1;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-hades-500 hover:bg-hades-400
+           text-slate-950 font-semibold rounded-lg transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-hades-400 focus:ring-offset-2
+           focus:ring-offset-slate-950;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 border border-slate-600
+           hover:border-hades-500 hover:text-hades-400 text-slate-200 font-semibold
+           rounded-lg transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-hades-400 focus:ring-offset-2
+           focus:ring-offset-slate-950;
+  }
+
+  .card {
+    @apply bg-slate-900/80 border border-slate-800 rounded-xl p-6
+           hover:border-slate-700 transition-colors duration-200;
+  }
+
+  .card-highlight {
+    @apply bg-slate-900/80 border border-hades-500/30 rounded-xl p-6
+           hover:border-hades-500/50 transition-colors duration-200;
+  }
+
+  .nav-link {
+    @apply text-slate-400 hover:text-hades-400 transition-colors duration-150
+           text-sm font-medium;
+  }
+
+  .nav-link-active {
+    @apply text-hades-400 font-semibold;
+  }
+}

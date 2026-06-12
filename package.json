@@ -1,0 +1,13 @@
+{
+  "name": "missao-hades-site",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i style/input.css -o style/output.css --minify",
+    "build": "npm run build:css && trunk build --release && cp dist/index.html dist/404.html",
+    "dev:css": "tailwindcss -i style/input.css -o style/output.css",
+    "dev": "npm run dev:css && trunk serve"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4"
+  }
+}
