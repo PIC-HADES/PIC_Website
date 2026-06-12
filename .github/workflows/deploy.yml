@@ -50,7 +50,7 @@ jobs:
         run: npx tailwindcss -i style/input.css -o style/output.css --minify
 
       - name: Build site with trunk
-        run: trunk build --release --public-url /missao-hades-site
+        run: trunk build --release --public-url /PIC_Website
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
