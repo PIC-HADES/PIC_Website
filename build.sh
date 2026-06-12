@@ -4,6 +4,19 @@ set -e
 # Build Tailwind CSS
 npm run build:css
 
+# Install Rust toolchain if missing
+if ! which rustc >/dev/null 2>&1; then
+    echo "Installing Rust toolchain..."
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    . "$HOME/.cargo/env"
+fi
+
+# Add wasm target if missing
+if ! rustup target list --installed 2>/dev/null | grep -q wasm32-unknown-unknown; then
+    echo "Adding wasm32-unknown-unknown target..."
+    rustup target add wasm32-unknown-unknown
+fi
+
 # Install trunk if not already available (download pre-built binary, ~2s vs 5min from source)
 if ! which trunk >/dev/null 2>&1; then
     echo "Installing trunk..."
