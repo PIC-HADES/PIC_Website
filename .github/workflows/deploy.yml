@@ -35,7 +35,7 @@ jobs:
           key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
 
       - name: Install trunk
-        run: cargo install trunk
+        run: curl -fsSL "https://github.com/trunk-rs/trunk/releases/latest/download/trunk-x86_64-unknown-linux-gnu.tar.gz" | tar xz -C ~/.cargo/bin
 
       - name: Install Node.js
         uses: actions/setup-node@v4
