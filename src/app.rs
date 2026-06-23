@@ -10,7 +10,7 @@ use crate::components::{navbar::Navbar, footer::Footer};
 /// Detect the base URL path at runtime.
 /// Production (GitHub Pages): /PIC_Website
 /// Local dev (trunk serve): "" (empty = root)
-fn router_base() -> &'static str {
+pub fn router_base() -> &'static str {
     static BASE: OnceLock<&'static str> = OnceLock::new();
     BASE.get_or_init(|| {
         let pathname = leptos::web_sys::window()
@@ -52,7 +52,7 @@ fn NotFound() -> impl IntoView {
             <div class="text-center">
                 <h1 class="text-6xl font-bold text-slate-600 mb-4">404</h1>
                 <p class="text-xl text-slate-400 mb-8">Página não encontrada</p>
-                <a href="/" class="btn-primary">Voltar ao início</a>
+                <a href={format!("{}/", router_base())} class="btn-primary">Voltar ao início</a>
             </div>
         </section>
     }

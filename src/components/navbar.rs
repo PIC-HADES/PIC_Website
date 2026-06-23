@@ -1,4 +1,5 @@
 use leptos::prelude::*;
+use crate::app::router_base;
 
 const NAV_ITEMS: &[(&str, &str)] = &[
     ("/",          "Início"),
@@ -17,7 +18,7 @@ pub fn Navbar() -> impl IntoView {
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-16">
                     {/* Logo */}
-                    <a href="/" class="flex items-center gap-3 group shrink-0">
+                    <a href={format!("{}/", router_base())} class="flex items-center gap-3 group shrink-0">
                         <img src="assets/mission-patch.png"
                              alt="Patch Missão Hades"
                              class="h-7 w-auto"
@@ -30,8 +31,9 @@ pub fn Navbar() -> impl IntoView {
                     {/* Desktop Nav */}
                     <div class="hidden md:flex items-center gap-8">
                         {NAV_ITEMS.iter().map(|(path, label)| {
+                            let href = format!("{}{}", router_base(), path);
                             view! {
-                                <a href=*path class="text-slate-400 hover:text-hades-400 transition-colors duration-150 text-sm font-medium">
+                                <a href=href class="text-slate-400 hover:text-hades-400 transition-colors duration-150 text-sm font-medium">
                                     {*label}
                                 </a>
                             }
@@ -62,8 +64,9 @@ pub fn Navbar() -> impl IntoView {
                         <div class="md:hidden border-t border-slate-800 bg-slate-950/95 backdrop-blur-md">
                             <div class="px-4 py-4 space-y-2">
                                 {NAV_ITEMS.iter().map(|(path, label)| {
+                                    let href = format!("{}{}", router_base(), path);
                                     view! {
-                                        <a href=*path
+                                        <a href=href
                                             class="block px-4 py-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-hades-400 transition-colors text-base font-medium"
                                         >
                                             {*label}
