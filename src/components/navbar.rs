@@ -6,7 +6,6 @@ const NAV_ITEMS: &[(&str, &str)] = &[
     ("/problema",  "O Problema"),
     ("/solucao",   "A Solução"),
     ("/viabilidade", "Viabilidade"),
-    ("/equipa",    "Equipa"),
 ];
 
 #[component]
@@ -19,7 +18,7 @@ pub fn Navbar() -> impl IntoView {
                 <div class="flex items-center justify-between h-16">
                     {/* Logo */}
                     <a href={format!("{}/", router_base())} class="flex items-center gap-3 group shrink-0">
-                        <img src="assets/mission-patch.png"
+                        <img src={format!("{}/assets/mission-patch.png", router_base())}
                              alt="Patch Missão Hades"
                              class="h-7 w-auto"
                         />

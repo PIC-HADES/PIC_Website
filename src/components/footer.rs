@@ -10,7 +10,7 @@ pub fn Footer() -> impl IntoView {
                     {/* Brand */}
                     <div>
                         <div class="flex items-center gap-3 mb-4">
-                            <img src="assets/mission-patch.png"
+                            <img src={format!("{}/assets/mission-patch.png", router_base())}
                                  alt="Patch Missão Hades"
                                  class="h-8 w-auto"
                             />
@@ -31,7 +31,6 @@ pub fn Footer() -> impl IntoView {
                             <li><a href={format!("{}/problema", router_base())} class="text-sm text-slate-400 hover:text-hades-400 transition-colors">O Problema</a></li>
                             <li><a href={format!("{}/solucao", router_base())} class="text-sm text-slate-400 hover:text-hades-400 transition-colors">A Solução</a></li>
                             <li><a href={format!("{}/viabilidade", router_base())} class="text-sm text-slate-400 hover:text-hades-400 transition-colors">Viabilidade</a></li>
-                            <li><a href={format!("{}/equipa", router_base())} class="text-sm text-slate-400 hover:text-hades-400 transition-colors">Equipa</a></li>
                         </ul>
                     </div>
                 </div>

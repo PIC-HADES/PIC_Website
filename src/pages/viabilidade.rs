@@ -10,7 +10,7 @@ pub fn ViabilidadePage() -> impl IntoView {
                     Economia
                 </div>
                 <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-                    <span class="text-emerald-400">Viabilidade</span> Económica
+                    <span class="text-emerald-400">Viabilidade</span>" Económica"
                 </h1>
                 <p class="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
                     "Um sistema 10× mais barato que a concorrência, viabilizando aquisições em escala"
@@ -38,19 +38,15 @@ pub fn ViabilidadePage() -> impl IntoView {
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-800">
-                            <CostRow item="Propulsão (2 estágios sólidos)" cost="85 000" pct=24.5/>
-                            <CostRow item="Aviônica & Guiamento" cost="41 208" pct=11.9/>
-                            <CostRow item="Seeker (FLIR Boson 640 + ótica)" cost="12 000" pct=3.5/>
-                            <CostRow item="Carga útil (fragmentação)" cost="15 000" pct=4.3/>
-                            <CostRow item="Estrutura & Aerodinâmica" cost="25 000" pct=7.2/>
-                            <CostRow item="Montagem, integração & testes" cost="50 000" pct=14.4/>
-                            <CostRow item="Engenharia & certificação" cost="55 000" pct=15.9/>
-                            <CostRow item="Margem de contingência (20%)" cost="63 792" pct=18.4/>
+                            <CostRow item="Materiais" cost="13 000" pct=6.1 />
+                            <CostRow item="Aviónica" cost="41 000" pct=19.3 />
+                            <CostRow item="Subsistemas" cost="133 000" pct=62.7 />
+                            <CostRow item="Fabrico" cost="25 000" pct=11.8 />
                         </tbody>
                         <tfoot>
                             <tr class="border-t-2 border-hades-500">
                                 <td class="py-4 px-4 font-bold text-slate-100">Total por míssil</td>
-                                <td class="py-4 px-4 text-right font-mono font-bold text-hades-400 text-lg">"€ 347 000"</td>
+                                <td class="py-4 px-4 text-right font-mono font-bold text-hades-400 text-lg">"€212 000"</td>
                                 <td class="py-4 px-4 text-right font-mono font-bold text-hades-400 text-lg">100%</td>
                             </tr>
                         </tfoot>
@@ -69,7 +65,7 @@ pub fn ViabilidadePage() -> impl IntoView {
                     <CompetitorCard
                         name="PAC-3 MSE"
                         origin="EUA (Lockheed Martin)"
-                        cost="€ 3 500 000"
+                        cost="3.5M€"
                         multiple="10× mais caro"
                         color="red"
                         is_ours=false
@@ -77,7 +73,7 @@ pub fn ViabilidadePage() -> impl IntoView {
                     <CompetitorCard
                         name="IRIS-T SLM"
                         origin="Alemanha (Diehl)"
-                        cost="€ 450 000"
+                        cost="€ 380 000"
                         multiple="1,3× mais caro"
                         color="amber"
                         is_ours=false
@@ -85,7 +81,7 @@ pub fn ViabilidadePage() -> impl IntoView {
                     <CompetitorCard
                         name="Missão Hades"
                         origin="Portugal"
-                        cost="€ 347 000"
+                        cost="0,38M€"
                         multiple="Referência"
                         color="emerald"
                         is_ours=true
@@ -226,7 +222,11 @@ fn CompetitorCard(
         _ => "text-slate-200",
     };
 
-    let bg = if is_ours { "bg-emerald-500/5" } else { "bg-slate-900/80" };
+    let bg = if is_ours {
+        "bg-emerald-500/5"
+    } else {
+        "bg-slate-900/80"
+    };
 
     view! {
         <div class=format!("{} card {}", bg, border)>

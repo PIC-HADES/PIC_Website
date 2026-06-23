@@ -10,7 +10,7 @@ pub fn ProblemaPage() -> impl IntoView {
                     Contexto
                 </div>
                 <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-                    O <span class="text-red-400">Problema</span> da Defesa Aérea
+                    "O " <span class="text-red-400">Problema</span> " da Defesa Aérea"
                 </h1>
                 <p class="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
                     Portugal enfrenta uma lacuna crítica na sua capacidade de defesa aérea de médio alcance,
@@ -63,21 +63,29 @@ pub fn ProblemaPage() -> impl IntoView {
                         </h3>
                         <ComparisonBar
                             name="PAC-3 (EUA)"
-                            cost="€ 3 500 000"
+                            cost="3.5M€"
                             percentage=100u32
                             color="red"
                             is_ours=false
                         />
                         <ComparisonBar
-                            name="IRIS-T SLM (Alemanha)"
-                            cost="€ 450 000"
+                            name="Aster 15 (França + Itália)"
+                            cost="3M€"
                             percentage=13u32
                             color="amber"
                             is_ours=false
                         />
                         <ComparisonBar
+                            name="AMRAAM (EUA + Itália)"
+                            cost="1M€"
+                            percentage=13u32
+                            color="amber"
+                            is_ours=false
+                        />
+
+                        <ComparisonBar
                             name="Missão Hades"
-                            cost="€ 347 000"
+                            cost="0.38M€"
                             percentage=10u32
                             color="emerald"
                             is_ours=true

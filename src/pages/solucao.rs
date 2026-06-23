@@ -1,3 +1,4 @@
+use crate::app::router_base;
 use leptos::prelude::*;
 
 #[component]
@@ -10,7 +11,7 @@ pub fn SolucaoPage() -> impl IntoView {
                     Arquitetura
                 </div>
                 <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-                    A <span class="text-naval-400">Solução</span> Técnica
+                    "A "<span class="text-naval-400"> Solução</span> " Técnica"
                 </h1>
                 <p class="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
                     Arquitetura modular baseada em componentes COTS com software custom,
@@ -19,11 +20,23 @@ pub fn SolucaoPage() -> impl IntoView {
             </div>
         </section>
 
+        {/* Missile Image */}
+        <section class="py-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-slate-100">
+                </h2>
+                <img src={format!("{}/assets/missil.png", router_base())}
+                     alt="Renderização do míssil Missão Hades"
+                     class="w-full max-w-4xl mx-auto rounded-xl shadow-2xl"
+                />
+            </div>
+        </section>
+
         {/* Specs Table */}
         <section class="py-16">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 text-slate-100">
-                    Especificações do Sistema
+                    "Especificações do Sistema"
                 </h2>
                 <div class="overflow-x-auto">
                     <table class="w-full border-collapse">
@@ -35,13 +48,16 @@ pub fn SolucaoPage() -> impl IntoView {
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-800">
-                            <SpecRow param="Alcance" value="50 km" note="Alcance efetivo contra alvos aéreos"/>
-                            <SpecRow param="Velocidade" value="Mach 4" note="Sustentado em voo de cruzeiro"/>
-                            <SpecRow param="Teto" value="12 000 m" note="Altitude operacional máxima"/>
+                            <SpecRow param="Alcance" value="45 km"/>
+                            <SpecRow param="Velocidade" value="Mach 4.25 " note="Sustentado em voo de cruzeiro"/>
+                            <SpecRow param="Teto" value="30 Km" note="Altitude operacional máxima"/>
+                            <SpecRow param="Aceleração Maxima" value ="22g" />
                             <SpecRow param="Carga útil" value="15 kg" note="Fragmentação direcional"/>
                             <SpecRow param="Sistema de guiamento" value="INS+GNSS + IIR" note="Atualizável para SAR"/>
-                            <SpecRow param="Comprimento" value="3,2 m" note="Lançamento tubular"/>
-                            <SpecRow param="Diâmetro" value="180 mm" note="Compatível lançadores standard"/>
+                            <SpecRow param="Comprimento" value="5.54 m" note="Lançamento tubular"/>
+                            <SpecRow param="Diâmetro" value="250 mm" />
+                            <SpecRow param= "Massa seca" value="215 Kg"/>
+                            <SpecRow param= "Massa total" value="280 Kg"/>
                             <SpecRow param="Peso lançamento" value="~90 kg" note="Inclui propelente"/>
                             <SpecRow param="Propulsão" value="2 estágios sólidos" note="Boost + sustentação"/>
                             <SpecRow param="Link de dados" value="FHSS 2,4 GHz" note="MAVLink encriptado, 50 km"/>
@@ -222,7 +238,11 @@ pub fn SolucaoPage() -> impl IntoView {
 }
 
 #[component]
-fn SpecRow(param: &'static str, value: &'static str, note: &'static str) -> impl IntoView {
+fn SpecRow(
+    param: &'static str,
+    value: &'static str,
+    #[prop(default = "")] note: &'static str,
+) -> impl IntoView {
     view! {
         <tr class="hover:bg-slate-800/30 transition-colors">
             <td class="py-3 px-4 text-slate-300 font-medium">{param}</td>

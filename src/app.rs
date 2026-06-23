@@ -1,11 +1,12 @@
 use leptos::prelude::*;
-use leptos_router::components::{Router, Routes, Route};
+use leptos_router::components::{Route, Router, Routes};
 use leptos_router::path;
 use std::sync::OnceLock;
 
-use crate::pages::{home::HomePage, problema::ProblemaPage, solucao::SolucaoPage,
-            viabilidade::ViabilidadePage, equipa::EquipaPage};
-use crate::components::{navbar::Navbar, footer::Footer};
+use crate::components::{footer::Footer, navbar::Navbar};
+use crate::pages::{
+    home::HomePage, problema::ProblemaPage, solucao::SolucaoPage, viabilidade::ViabilidadePage,
+};
 
 /// Detect the base URL path at runtime.
 /// Production (GitHub Pages): /PIC_Website
@@ -36,7 +37,6 @@ pub fn MissaoHadesApp() -> impl IntoView {
                         <Route path=path!("/problema") view=ProblemaPage/>
                         <Route path=path!("/solucao") view=SolucaoPage/>
                         <Route path=path!("/viabilidade") view=ViabilidadePage/>
-                        <Route path=path!("/equipa") view=EquipaPage/>
                     </Routes>
                 </main>
                 <Footer/>
