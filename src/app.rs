@@ -1,15 +1,33 @@
 use leptos::prelude::*;
 use leptos_router::components::{Router, Routes, Route};
 use leptos_router::path;
+use std::sync::OnceLock;
 
 use crate::pages::{home::HomePage, problema::ProblemaPage, solucao::SolucaoPage,
             viabilidade::ViabilidadePage, equipa::EquipaPage};
 use crate::components::{navbar::Navbar, footer::Footer};
 
+/// Detect the base URL path at runtime.
+/// Production (GitHub Pages): /PIC_Website
+/// Local dev (trunk serve): "" (empty = root)
+fn router_base() -> &'static str {
+    static BASE: OnceLock<&'static str> = OnceLock::new();
+    BASE.get_or_init(|| {
+        let pathname = leptos::web_sys::window()
+            .and_then(|w| w.location().pathname().ok())
+            .unwrap_or_default();
+        if pathname == "/PIC_Website" || pathname.starts_with("/PIC_Website/") {
+            "/PIC_Website"
+        } else {
+            ""
+        }
+    })
+}
+
 #[component]
 pub fn MissaoHadesApp() -> impl IntoView {
     view! {
-        <Router>
+        <Router base=router_base()>
             <div class="flex flex-col min-h-screen">
                 <Navbar/>
                 <main class="flex-1">
