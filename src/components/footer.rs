@@ -1,4 +1,5 @@
 use leptos::prelude::*;
+use crate::app::router_base;
 
 #[component]
 pub fn Footer() -> impl IntoView {
@@ -26,11 +27,11 @@ pub fn Footer() -> impl IntoView {
                             Navegação
                         </h4>
                         <ul class="space-y-2">
-                            <li><a href="/" class="text-sm text-slate-400 hover:text-hades-400 transition-colors">Início</a></li>
-                            <li><a href="/problema" class="text-sm text-slate-400 hover:text-hades-400 transition-colors">O Problema</a></li>
-                            <li><a href="/solucao" class="text-sm text-slate-400 hover:text-hades-400 transition-colors">A Solução</a></li>
-                            <li><a href="/viabilidade" class="text-sm text-slate-400 hover:text-hades-400 transition-colors">Viabilidade</a></li>
-                            <li><a href="/equipa" class="text-sm text-slate-400 hover:text-hades-400 transition-colors">Equipa</a></li>
+                            <li><a href={format!("{}/", router_base())} class="text-sm text-slate-400 hover:text-hades-400 transition-colors">Início</a></li>
+                            <li><a href={format!("{}/problema", router_base())} class="text-sm text-slate-400 hover:text-hades-400 transition-colors">O Problema</a></li>
+                            <li><a href={format!("{}/solucao", router_base())} class="text-sm text-slate-400 hover:text-hades-400 transition-colors">A Solução</a></li>
+                            <li><a href={format!("{}/viabilidade", router_base())} class="text-sm text-slate-400 hover:text-hades-400 transition-colors">Viabilidade</a></li>
+                            <li><a href={format!("{}/equipa", router_base())} class="text-sm text-slate-400 hover:text-hades-400 transition-colors">Equipa</a></li>
                         </ul>
                     </div>
                 </div>

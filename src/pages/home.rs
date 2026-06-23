@@ -1,4 +1,5 @@
 use leptos::prelude::*;
+use crate::app::router_base;
 
 #[component]
 pub fn HomePage() -> impl IntoView {
@@ -45,13 +46,13 @@ pub fn HomePage() -> impl IntoView {
 
                 {/* CTA Buttons */}
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-                    <a href="/solucao" class="btn-primary text-base px-8 py-4">
+                    <a href={format!("{}/solucao", router_base())} class="btn-primary text-base px-8 py-4">
                         Explorar a solução
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                         </svg>
                     </a>
-                    <a href="/viabilidade" class="btn-outline text-base px-8 py-4">
+                    <a href={format!("{}/viabilidade", router_base())} class="btn-outline text-base px-8 py-4">
                         Ver viabilidade económica
                     </a>
                 </div>
